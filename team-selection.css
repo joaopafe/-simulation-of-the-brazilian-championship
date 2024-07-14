@@ -1,0 +1,46 @@
+body {
+  height: 99.8vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  background-color: #383838;
+}
+
+#message {
+  margin-bottom: 2vh;
+  font-size: 8vh;
+  font-weight: bold;
+  color: white;
+}
+
+#team-selection-section {
+  margin-bottom: 2vh;
+  height: 8vh;
+}
+
+#team-selection {
+  height: 100%;
+  width: 100%;
+  font-size: 5vh;
+  background-color: white;
+  border: 0.5vh solid black;
+  border-radius: 1vh;
+}
+
+#confirm-button-section {
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+}
+
+#confirm-button {
+  height: 100%;
+  width: 50%;
+  background-color: #1f981d;
+  font-size: 6vh;
+  font-weight: bold;
+  border: none;
+  border-radius: 1vh;
+  color: white;
+}

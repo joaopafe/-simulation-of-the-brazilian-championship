@@ -3,37 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Seleção de time</title>
+
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="team-selection.css" />
   </head>
 
   <body>
     <div>
-      <h1>Selecione seu time:</h1>
+      <div id="message">
+        <h1>Selecione seu time:</h1>
+      </div>
 
-      <select name="team" id="team-select">
-        <option value="america-mineiro">América Mineiro</option>
-        <option value="athletico-paranaense">Athletico P.</option>
-        <option value="atletico-mineiro">Atlético Mineiro</option>
-        <option value="bahia">Bahia</option>
-        <option value="botofogo">Botafogo</option>
-        <option value="bragrantino">Bragantino</option>
-        <option value="corinthians">Corinthians</option>
-        <option value="cruzeiro">Cruzeiro</option>
-        <option value="cuiaba">Cuiabá</option>
-        <option value="flamengo">Flamengo</option>
-        <option value="fluminense">Fluminense</option>
-        <option value="fortaleza">Fortaleza</option>
-        <option value="gremio">Grêmio</option>
-        <option value="internacional">Internacional</option>
-        <option value="juventude">Juventude</option>
-        <option value="palmeiras">Palmeiras</option>
-        <option value="santos">Santos</option>
-        <option value="sao-paulo">São Paulo</option>
-        <option value="vasco-da-gama">Vasco da Gama</option>
-        <option value="vitoria">Vitória</option>
-      </select>
+      <div id="team-selection-section">
+        <select name="team" id="team-selection">
+          <option value="america-mineiro">América Mineiro</option>
+          <option value="athletico-paranaense">Athletico P.</option>
+          <option value="atletico-mineiro">Atlético Mineiro</option>
+          <option value="bahia">Bahia</option>
+          <option value="botofogo">Botafogo</option>
+          <option value="bragrantino">Bragantino</option>
+          <option value="corinthians">Corinthians</option>
+          <option value="cruzeiro">Cruzeiro</option>
+          <option value="cuiaba">Cuiabá</option>
+          <option value="flamengo">Flamengo</option>
+          <option value="fluminense">Fluminense</option>
+          <option value="fortaleza">Fortaleza</option>
+          <option value="gremio">Grêmio</option>
+          <option value="internacional">Internacional</option>
+          <option value="juventude">Juventude</option>
+          <option value="palmeiras">Palmeiras</option>
+          <option value="santos">Santos</option>
+          <option value="sao-paulo">São Paulo</option>
+          <option value="vasco-da-gama">Vasco da Gama</option>
+          <option value="vitoria">Vitória</option>
+        </select>
+      </div>
 
-      <button onclick="window.location='index.html'">Confirmar</button>
+      <div id="confirm-button-section">
+        <button id="confirm-button" onclick="window.location='index.html'">
+          Confirmar
+        </button>
+      </div>
     </div>
   </body>
 </html>
