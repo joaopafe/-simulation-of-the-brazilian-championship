@@ -3,30 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../reset.css" />
+    <link rel="stylesheet" href="./index.css" />
+
     <title>Simulação do campeonato brasileiro</title>
   </head>
 
   <body>
     <div class="championship-information">
-      <div id="goals-available">
-        <div class="information" id="goals-available-information">
-          Gols disponíveis:
+      <div id="information-section-1">
+        <div id="goals-available">
+          <div class="information" id="goals-available-information">
+            Gols disponíveis:
+          </div>
+          <div class="value" id="goals-available-value">0</div>
         </div>
-        <div class="value" id="goals-available-value">0</div>
+
+        <div id="matches-played">
+          <div class="information" id="matches-played-information">
+            Jogos disputados:
+          </div>
+          <div class="value" id="matches-played-value">0</div>
+        </div>
       </div>
 
-      <div id="matches-played">
-        <div class="information" id="matches-played-information">
-          Jogos disputados:
+      <div id="information-section-2">
+        <div id="current-score">
+          <div class="information" id="current-score-information">
+            Pontuação atual:
+          </div>
+          <div class="value" id="current-score-value">0</div>
         </div>
-        <div class="value" id="matches-played-value">0</div>
-      </div>
-
-      <div id="current-score">
-        <div class="information" id="current-score-information">
-          Pontuação atual:
-        </div>
-        <div class="value" id="current-score-value">0</div>
       </div>
     </div>
 
@@ -39,15 +47,12 @@
 
       <div id="teams-information">
         <div id="player-team">América Mineiro</div>
-        <input
-          type="number"
-          name="player-team-score"
-          id="player-team-score"
-          value="0"
-        />
+        <input name="player-team-score" id="player-team-score" value="0" />
 
-        <div id="opposing-team">Atlético Mineiro</div>
+        <div id="versus">X</div>
+
         <div id="opposing-team-score">?</div>
+        <div id="opposing-team">Atlético Mineiro</div>
       </div>
 
       <div id="confirm-match">

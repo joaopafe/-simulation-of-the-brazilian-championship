@@ -1,0 +1,140 @@
+body {
+  background-color: #383838;
+  font-family: sans-serif;
+  height: 99vh;
+}
+
+.championship-information {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1vh;
+  font-size: 8vh;
+  font-weight: bold;
+}
+
+#goals-available {
+  display: flex;
+}
+
+#goals-available-information {
+  color: white;
+}
+
+#goals-available-value {
+  color: #1f981d;
+}
+
+#matches-played {
+  display: flex;
+}
+
+#matches-played-information {
+  color: white;
+}
+
+#matches-played-value {
+  color: #1f981d;
+}
+
+#current-score {
+  display: flex;
+}
+
+#current-score-information {
+  color: white;
+}
+
+#current-score-value {
+  color: #1f981d;
+}
+
+.match-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80%;
+}
+
+#place-information {
+  display: flex;
+  font-size: 6vh;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 5vh;
+}
+
+#place-match-information {
+  margin-right: 1vh;
+}
+
+#teams-information {
+  display: flex;
+  margin-bottom: 2vh;
+}
+
+#player-team {
+  background-color: #1fae1c;
+  color: white;
+  font-weight: bolder;
+  font-size: 6vh;
+  padding: 1.5vh 1.5vh 1.5vh 1.5vh;
+  border-radius: 1.5vh;
+  margin-right: 3vh;
+}
+
+#player-team-score {
+  width: 6vh;
+  font-size: 4vh;
+  margin-right: 4vh;
+  border: none;
+  border-radius: 1vh;
+}
+
+#versus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+  font-size: 6vh;
+  color: white;
+  margin-right: 4vh;
+}
+
+#opposing-team-score {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  border-radius: 1vh;
+  width: 6.5vh;
+  background-color: white;
+  font-size: 4vh;
+  margin-right: 3vh;
+}
+
+#opposing-team {
+  background-color: #1f1f1f;
+  color: white;
+  font-weight: bolder;
+  font-size: 6vh;
+  padding: 1.5vh 1.5vh 1.5vh 1.5vh;
+  border-radius: 1.5vh;
+}
+
+#confirm-match {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 22vh;
+  font-size: 5vh;
+}
+
+#confirm-button {
+  border-radius: 1vh;
+  border: none;
+  background-color: #1f981d;
+  color: white;
+  width: 100%;
+  font-size: 4vh;
+  font-weight: bolder;
+}
