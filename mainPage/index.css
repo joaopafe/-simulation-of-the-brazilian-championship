@@ -89,6 +89,7 @@ body {
   margin-right: 4vh;
   border: none;
   border-radius: 1vh;
+  text-align: center;
 }
 
 #versus {
@@ -103,7 +104,7 @@ body {
 
 #opposing-team-score {
   display: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
   border-radius: 1vh;
   width: 6.5vh;
