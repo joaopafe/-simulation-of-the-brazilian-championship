@@ -17,38 +17,44 @@
       </div>
 
       <div id="team-selection-section">
-        <select name="team" id="team-selection">
-          <option value="america-mineiro">América Mineiro</option>
-          <option value="athletico-paranaense">Athletico P.</option>
-          <option value="atletico-mineiro">Atlético Mineiro</option>
-          <option value="bahia">Bahia</option>
-          <option value="botofogo">Botafogo</option>
-          <option value="bragrantino">Bragantino</option>
-          <option value="corinthians">Corinthians</option>
-          <option value="cruzeiro">Cruzeiro</option>
-          <option value="cuiaba">Cuiabá</option>
-          <option value="flamengo">Flamengo</option>
-          <option value="fluminense">Fluminense</option>
-          <option value="fortaleza">Fortaleza</option>
-          <option value="gremio">Grêmio</option>
-          <option value="internacional">Internacional</option>
-          <option value="juventude">Juventude</option>
-          <option value="palmeiras">Palmeiras</option>
-          <option value="santos">Santos</option>
-          <option value="sao-paulo">São Paulo</option>
-          <option value="vasco-da-gama">Vasco da Gama</option>
-          <option value="vitoria">Vitória</option>
-        </select>
-      </div>
+        <form id="team-selection-form">
+          <select name="team" id="team-selection">
+            <option value="1">América Mineiro</option>
+            <option value="2">Athletico Paranaense</option>
+            <option value="3">Atlético Mineiro</option>
+            <option value="4">Bahia</option>
+            <option value="5">Botafogo</option>
+            <option value="6">Bragantino</option>
+            <option value="7">Corinthians</option>
+            <option value="8">Cruzeiro</option>
+            <option value="9">Cuiabá</option>
+            <option value="10">Flamengo</option>
+            <option value="11">Fluminense</option>
+            <option value="12">Fortaleza</option>
+            <option value="13">Grêmio</option>
+            <option value="14">Internacional</option>
+            <option value="15">Juventude</option>
+            <option value="16">Palmeiras</option>
+            <option value="17">Santos</option>
+            <option value="18">São Paulo</option>
+            <option value="19">Vasco da Gama</option>
+            <option value="20">Vitória</option>
+          </select>
 
-      <div id="confirm-button-section">
-        <button
-          id="confirm-button"
-          onclick="window.location='../mainPage/index.html'"
-        >
-          Confirmar
-        </button>
+          <div id="confirm-button-section">
+            <button
+              type="submit"
+              id="confirm-button"
+              onclick="window.location='../mainPage/index.html'"
+            >
+              Confirmar
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </body>
+
+  <script src="../data/teams.js"></script>
+  <script src="./team-selection.js"></script>
 </html>
