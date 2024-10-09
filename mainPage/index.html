@@ -56,11 +56,19 @@
       </div>
 
       <div id="confirm-match">
-        <button id="confirm-button">Confirmar</button>
+        <button id="confirm-button" onclick="match.runMatch()">
+          Confirmar
+        </button>
+
+        <button id="next-match-button" onclick="match.updateMatch()">
+          Próximo
+        </button>
       </div>
     </div>
   </body>
 
   <script src="../data/teams.js"></script>
+  <script src="../utils/getRandomValue.js"></script>
+  <script src="../services/Match.js"></script>
   <script src="./index.js"></script>
 </html>
