@@ -102,12 +102,24 @@ class Match {
   }
 
   calculateGoalsByMatchLocal(offset, matchLocal) {
+    let finalOffset = offset;
+
+    if (offset === 4) finalOffset = 3;
+    if (offset === 3) finalOffset = 2;
+    if (offset === 2) finalOffset = 1;
+
     if (matchLocal === "Em casa") {
-      return offset + this.getRandomGoals([-1, 0, 1]);
+      if (finalOffset > 0) {
+        return finalOffset + this.getRandomGoals([-1, 0, 1]);
+      }
+      return finalOffset + this.getRandomGoals([1, 2, 3, 4]);
     }
 
     if (matchLocal === "Fora de casa") {
-      return offset + this.getRandomGoals([0, 1, 2]);
+      if (finalOffset > 0) {
+        return finalOffset + this.getRandomGoals([0, 1, 2]);
+      }
+      return finalOffset + this.getRandomGoals([1, 2, 3, 4, 5]);
     }
   }
 
@@ -120,23 +132,23 @@ class Match {
 
     if (goalsDifference >= 0.8 && goalsDifference < 1.2) goalsOffset = 0;
 
-    if (goalsDifference < 0.8 && goalsDifference >= 0.6) goalsOffset = 1;
+    if (goalsDifference < 0.8 && goalsDifference >= 0.5) goalsOffset = 1;
 
-    if (goalsDifference < 0.6) goalsOffset = 2;
+    if (goalsDifference < 0.5) goalsOffset = 2;
 
-    if (goalsDifference >= 1.2 && goalsDifference < 1.4) goalsOffset = -1;
+    if (goalsDifference >= 1.2 && goalsDifference < 1.5) goalsOffset = -1;
 
-    if (goalsDifference >= 1.4) goalsOffset = -2;
+    if (goalsDifference >= 1.5) goalsOffset = -2;
 
     if (scoreDifference >= 0.8 && scoreDifference < 1.2) scoreOffset = 0;
 
-    if (scoreDifference < 0.8 && scoreDifference >= 0.6) scoreOffset = 1;
+    if (scoreDifference < 0.8 && scoreDifference >= 0.5) scoreOffset = 1;
 
-    if (scoreDifference < 0.6) scoreOffset = 2;
+    if (scoreDifference < 0.5) scoreOffset = 2;
 
-    if (scoreDifference >= 1.2 && scoreDifference < 1.4) scoreOffset = -1;
+    if (scoreDifference >= 1.2 && scoreDifference < 1.5) scoreOffset = -1;
 
-    if (scoreDifference >= 1.4) scoreOffset = -2;
+    if (scoreDifference >= 1.5) scoreOffset = -2;
 
     return goalsOffset + scoreOffset;
   }
@@ -166,26 +178,56 @@ class Match {
   }
 
   runMatch() {
-    this.getOpponentGoals(opponentGoalsAndScores);
-
-    const opponentGoals = this.opponentGoals;
+    if (this.nextMatch === true)
+      window.alert("Você já jogou esta partida, por favor clique em 'Próximo'");
 
     const teamGoalsOnTheMatch = parseInt(
       document.getElementById("player-team-score").value
     );
 
-    document.getElementById("opposing-team-score").innerHTML = opponentGoals;
+    const goalsAvailable = parseInt(
+      document.getElementById("goals-available-value").innerHTML
+    );
 
-    if (teamGoalsOnTheMatch < opponentGoals) {
-      this.updateChampionshipInformation(0, teamGoalsOnTheMatch);
+    if (teamGoalsOnTheMatch < 0) {
+      window.alert("Você só pode informar um número positivo de gols");
     }
 
-    if (teamGoalsOnTheMatch === opponentGoals) {
-      this.updateChampionshipInformation(1, teamGoalsOnTheMatch);
+    if (teamGoalsOnTheMatch > goalsAvailable) {
+      window.alert(
+        `Você não pode marcar ${teamGoalsOnTheMatch} gols, pois possui somente ${goalsAvailable} gols disponíveis.`
+      );
     }
 
-    if (teamGoalsOnTheMatch > opponentGoals) {
-      this.updateChampionshipInformation(3, teamGoalsOnTheMatch);
+    if (this.nextMatch === false && teamGoalsOnTheMatch < goalsAvailable) {
+      this.getOpponentGoals(opponentGoalsAndScores);
+
+      const opponentGoals = this.opponentGoals;
+
+      if (teamGoalsOnTheMatch >= 0) {
+        document.getElementById("opposing-team-score").innerHTML =
+          opponentGoals;
+
+        if (teamGoalsOnTheMatch < opponentGoals) {
+          this.matchesPlayed++;
+
+          this.updateChampionshipInformation(0, teamGoalsOnTheMatch);
+        }
+
+        if (teamGoalsOnTheMatch === opponentGoals) {
+          this.matchesPlayed++;
+
+          this.updateChampionshipInformation(1, teamGoalsOnTheMatch);
+        }
+
+        if (teamGoalsOnTheMatch > opponentGoals) {
+          this.matchesPlayed++;
+
+          this.updateChampionshipInformation(3, teamGoalsOnTheMatch);
+        }
+
+        this.nextMatch = true;
+      }
     }
   }
 
@@ -206,15 +248,48 @@ class Match {
   }
 
   updateMatch() {
-    this.matchesPlayed++;
+    if (this.matchesPlayed === 38) {
+      const finalTeamScore = parseInt(
+        document.getElementById("current-score-value").innerHTML
+      );
 
-    const opponent = championshipMatches[this.matchesPlayed].team;
-    const color = championshipMatches[this.matchesPlayed].color;
-    const matchLocal = championshipMatches[this.matchesPlayed].matchLocal;
+      this.redirectToFinalClassification(
+        finalTeamScore,
+        opponentGoalsAndScores
+      );
+    }
 
-    document.getElementById("opposing-team-score").innerHTML = "?";
-    document.getElementById("opposing-team").innerHTML = opponent;
-    document.getElementById("opposing-team").style.backgroundColor = color;
-    document.getElementById("place-match-value").innerHTML = matchLocal;
+    if (this.matchesPlayed < 38) {
+      const opponent = championshipMatches[this.matchesPlayed].team;
+      const color = championshipMatches[this.matchesPlayed].color;
+      const matchLocal = championshipMatches[this.matchesPlayed].matchLocal;
+
+      document.getElementById("opposing-team-score").innerHTML = "?";
+      document.getElementById("opposing-team").innerHTML = opponent;
+      document.getElementById("opposing-team").style.backgroundColor = color;
+      document.getElementById("place-match-value").innerHTML = matchLocal;
+
+      this.nextMatch = false;
+    }
+  }
+
+  redirectToFinalClassification(finalTeamScore, opponentGoalsAndScores) {
+    let finalScore = [];
+
+    opponentGoalsAndScores.filter((team) => {
+      finalScore.push({
+        teamName: team.teamName,
+        score: team.score,
+      });
+    });
+
+    finalScore.push({
+      teamName: localStorage.getItem("teamName"),
+      score: finalTeamScore,
+    });
+
+    localStorage.setItem("finalScore", JSON.stringify(finalScore));
+
+    window.location.href = "../finalClassification/final-classification.html";
   }
 }
