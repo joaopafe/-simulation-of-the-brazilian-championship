@@ -74,6 +74,8 @@ body {
 }
 
 #player-team {
+  display: flex;
+  justify-content: center;
   background-color: #1fae1c;
   color: white;
   font-weight: bolder;
@@ -81,6 +83,7 @@ body {
   padding: 1.5vh 1.5vh 1.5vh 1.5vh;
   border-radius: 1.5vh;
   margin-right: 3vh;
+  width: 60vh;
 }
 
 #player-team-score {
@@ -114,12 +117,15 @@ body {
 }
 
 #opposing-team {
+  display: flex;
+  justify-content: center;
   background-color: #1f1f1f;
   color: white;
   font-weight: bolder;
   font-size: 6vh;
   padding: 1.5vh 1.5vh 1.5vh 1.5vh;
   border-radius: 1.5vh;
+  width: 60vh;
 }
 
 #confirm-match {
@@ -136,6 +142,7 @@ body {
   border: none;
   background-color: #1f981d;
   color: white;
+  height: 8vh;
   width: 100%;
   font-size: 4vh;
   font-weight: bolder;
@@ -147,6 +154,7 @@ body {
   border: none;
   background-color: #348ca7;
   color: white;
+  height: 8vh;
   width: 100%;
   font-size: 4vh;
   font-weight: bolder;
