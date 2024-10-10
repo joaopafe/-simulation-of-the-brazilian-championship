@@ -199,7 +199,7 @@ class Match {
       );
     }
 
-    if (this.nextMatch === false && teamGoalsOnTheMatch < goalsAvailable) {
+    if (this.nextMatch === false && teamGoalsOnTheMatch <= goalsAvailable) {
       this.getOpponentGoals(opponentGoalsAndScores);
 
       const opponentGoals = this.opponentGoals;
